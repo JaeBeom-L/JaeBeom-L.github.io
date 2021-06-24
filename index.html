@@ -15,7 +15,21 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.css">
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/github-activity-feed@latest/dist/github-activity.min.js"></script>
+		<script>
+			  function updateFeed(username) {
+			    GitHubActivity.feed({ username: username, selector: '#feed', limit: 10});
+			  }
+			
+			  $(document).ready(function() {
+			    updateFeed('JaeBeom-L');
+			  });
+		</script>       
         <script>
         	$(document).ready(function(){
         		$('#sakila1').click(function(){
@@ -45,23 +59,56 @@
         		});
         		
         		$('#mall_client1').click(function(){
+        			$('#mall_clientimg').attr('href','http://jbdomain.kro.kr/mall_client/IndexController');
+        			$('#mall_clientimg').removeAttr('data-fancybox data-caption','캡션');
         			$('#mall_client').attr('src','assets/img/mall_client.JPG');
         		});
         		$('#mall_client2').click(function(){
         			$('#mall_client').attr('src','assets/img/mall_clienterd.png');
+        			$('#mall_clientimg').attr('href','assets/img/mall_clienterd.png');
+        			$('#mall_clientimg').attr('data-fancybox data-caption','캡션');
         		});
         		$('#mall_client3').click(function(){
-        			$('#mall_client').attr('src','assets/img/sakilaexplain.PNG');
+        			$('#mall_client').attr('src','assets/img/mall_clientexplain.JPG');
+        			$('#mall_clientimg').attr('href','assets/img/mall_clientexplain.JPG');
+        			$('#mall_clientimg').attr('data-fancybox data-caption','캡션');
+        		});
+        		$('#mall_client4').click(function(){
+        			$('#mall_client').attr('src','assets/img/mall_clientproject.JPG');
+        			$('#mall_clientimg').attr('href','assets/img/mall_clientproject.JPG');
+        			$('#mall_clientimg').attr('data-fancybox data-caption','캡션');
+        		});
+        		$('#mall_client5').click(function(){
+        			$('#mall_client').attr('src','assets/img/mall_clientservice.JPG');
+        			$('#mall_clientimg').attr('href','assets/img/mall_clientservice.JPG');
+        			$('#mall_clientimg').attr('data-fancybox data-caption','캡션');
         		});
         		
+        		
         		$('#mall_admin1').click(function(){
+        			$('#mall_adminimg').attr('href','http://jbdomain.kro.kr/mall_admin/adminIndex.jsp');
+        			$('#mall_adminimg').removeAttr('data-fancybox data-caption','캡션');
         			$('#mall_admin').attr('src','assets/img/mall_admin.JPG');
         		});
         		$('#mall_admin2').click(function(){
         			$('#mall_admin').attr('src','assets/img/mall_clienterd.png');
+        			$('#mall_adminimg').attr('href','assets/img/mall_clienterd.png');
+        			$('#mall_adminimg').attr('data-fancybox data-caption','캡션');
         		});
         		$('#mall_admin3').click(function(){
         			$('#mall_admin').attr('src','assets/img/mall_adminexplain.JPG');
+        			$('#mall_adminimg').attr('href','assets/img/mall_adminexplain.JPG');
+        			$('#mall_adminimg').attr('data-fancybox data-caption','캡션');
+        		});
+        		$('#mall_admin4').click(function(){
+        			$('#mall_admin').attr('src','assets/img/mall_adminproject.JPG');
+        			$('#mall_adminimg').attr('href','assets/img/mall_adminproject.JPG');
+        			$('#mall_adminimg').attr('data-fancybox data-caption','캡션');
+        		});
+        		$('#mall_admin5').click(function(){
+        			$('#mall_admin').attr('src','assets/img/mall_adminservice.JPG');
+        			$('#mall_adminimg').attr('href','assets/img/mall_adminservice.JPG');
+        			$('#mall_adminimg').attr('data-fancybox data-caption','캡션');
         		});
         	});
         </script>
@@ -79,7 +126,8 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#github">GitHub</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>                        
                     </ul>
                 </div>
             </div>
@@ -311,7 +359,7 @@
                 <hr><br>
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     <div class="col-xl-8 col-lg-7">
-                    	<a href="http://jbdomain.kro.kr/mall_client/IndexController" style="text-decoration: none" target='_blank'>
+                    	<a href="http://jbdomain.kro.kr/mall_client/IndexController" style="text-decoration: none" target='_blank' id="mall_clientimg">
                     		<img class="img-fluid mb-3 mb-lg-0" src="assets/img/mall_client.JPG" alt="..." id="mall_client"/>
                     	</a>
                     	<br><br>
@@ -320,6 +368,7 @@
 							<li class="page-item"><button class="page-link" id="mall_client2">2</button></li>
 							<li class="page-item"><button class="page-link" id="mall_client3">3</button></li>
 							<li class="page-item"><button class="page-link" id="mall_client4">4</button></li>
+							<li class="page-item"><button class="page-link" id="mall_client5">5</button></li>
 						</ul>
                     </div>              
                     <div class="col-xl-4 col-lg-5">
@@ -356,7 +405,7 @@
                 <hr><br>
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     <div class="col-xl-8 col-lg-7">
-                    	<a href="http://jbdomain.kro.kr/mall_admin/adminIndex.jsp" style="text-decoration: none" target='_blank'>
+                    	<a href="http://jbdomain.kro.kr/mall_admin/adminIndex.jsp" style="text-decoration: none" target='_blank' id="mall_adminimg">
                     		<img class="img-fluid mb-3 mb-lg-0" src="assets/img/mall_admin.JPG" alt="..." id="mall_admin"/>
                     	</a>
                     	<br><br>
@@ -364,6 +413,8 @@
 							<li class="page-item"><button class="page-link" id="mall_admin1">1</button></li>
 							<li class="page-item"><button class="page-link" id="mall_admin2">2</button></li>
 							<li class="page-item"><button class="page-link" id="mall_admin3">3</button></li>
+							<li class="page-item"><button class="page-link" id="mall_admin4">4</button></li>
+							<li class="page-item"><button class="page-link" id="mall_admin5">5</button></li>
 						</ul>
                     </div>              
                     <div class="col-xl-4 col-lg-5">
@@ -393,12 +444,23 @@
                             <p>
                             	<a class="mx-2" href="https://github.com/JaeBeom-L/mall_admin" target='_blank'><i class="fab fa-github"></i></a>
                             	<a href="https://github.com/JaeBeom-L/mall_admin" style="text-decoration: none" target='_blank'>GitHub Source Code</a>
-                            </p>
+                            </p>                            
                         </div>
                     </div>
                 </div>
+                <hr>
             </div>
         </section>
+        
+        <!-- Resent GitHub Commit -->
+         <!-- Contact-->
+        <section class="projects-section bg-light" id="github">
+            <div class="container px-4 px-lg-5">
+            	<h2><b>GitHub</b></h2>
+            	<div id="feed"></div>
+            </div>
+      	</section>
+        
         <!-- Contact-->
         <section class="contact-section bg-black" id="signup">
             <div class="container px-4 px-lg-5">
